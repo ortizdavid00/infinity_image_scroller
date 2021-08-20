@@ -1,5 +1,19 @@
 "use strict";
 
+// FingerprintJS
+import FingerprintJS from "@fingerprintjs/fingerprintjs-pro";
+
+// Initialize an agent at application startup.
+const fpPromise = FingerprintJS.load({
+  token: "8uso7PORnHtbwMig7dH2",
+  endpoint: "https://fp.david-infinity-scroller.com",
+});
+
+// Get the visitor identifier when you need it.
+fpPromise
+  .then((fp) => fp.get())
+  .then((result) => console.log(result.visitorId));
+
 const imageContainer = document.getElementById("image-container");
 const loader = document.getElementById("loader");
 

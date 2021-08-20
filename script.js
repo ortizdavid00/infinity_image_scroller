@@ -1,4 +1,4 @@
-import FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
+import FingerprintJS from '/@fingerprintjs/fingerprintjs-pro'
 
 FingerprintJS.load({token: '8uso7PORnHtbwMig7dH2', endpoint: 'https://fp.david-infinity-scroller.com'})
   .then(fp => fp.get())

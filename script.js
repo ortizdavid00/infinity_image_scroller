@@ -1,9 +1,3 @@
-import FingerprintJS from '/node_modules/@fingerprintjs/fingerprintjs-pro/dist/fp.min.js'
-
-FingerprintJS.load({token: '8uso7PORnHtbwMig7dH2', endpoint: 'https://fp.david-infinity-scroller.com'})
-  .then(fp => fp.get())
-  .then(result => console.log(result.visitorId))
-
 const imageContainer = document.getElementById("image-container");
 const loader = document.getElementById("loader");
 

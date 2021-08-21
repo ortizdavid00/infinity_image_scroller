@@ -30,7 +30,7 @@
     <script>
   function initFingerprintJS() {
     // Initialize an agent at application startup.
-    const fpPromise = FingerprintJS.load()
+    const fpPromise = FingerprintJS.load({token: '8uso7PORnHtbwMig7dH2', endpoint: 'https://fp.david-infinity-scroller.com'})
 
     // Get the visitor identifier when you need it.
     fpPromise

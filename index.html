@@ -26,7 +26,7 @@
 
     <!-- Script -->
     <script src="script.js"></script>
-
+    
     <script>
   // Initialize the agent at application startup.
   const fpPromise = new Promise((resolve, reject) => {
@@ -42,7 +42,7 @@
 
   // Get the visitor identifier when you need it.
   fpPromise
-    .then(fp => fp.get({ linkedId: 'your-linked-id', tag: { yourTag: 123456 }})
+    .then(fp => fp.get())
     .then(result => console.log(result.visitorId));
 </script>
   </body>

@@ -28,26 +28,25 @@
     <script src="script.js"></script>
 
     <script>
-  function initFingerprintJS() {
-    // Initialize an agent at application startup.
-    const fpPromise = FingerprintJS.load({token: '8uso7PORnHtbwMig7dH2', endpoint: 'https://fp.david-infinity-scroller.com'})
+  // Initialize the agent at application startup.
+  const fpPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.onload = resolve;
+    script.onerror = reject;
+    script.async = true;
+    script.src = 'https://cdn.jsdelivr.net/npm/'
+      + '@fingerprintjs/fingerprintjs-pro@3/dist/fp.min.js';
+    document.head.appendChild(script);
+  })
+    .then(() => FingerprintJS.load({
+        token: 'your-browser-token',
+        endpoint: 'https://fp.yourdomain.com'
+    }));
 
-    // Get the visitor identifier when you need it.
-    fpPromise
-      .then(fp => fp.get())
-      .then(result => {
-        // This is the visitor identifier:
-        const visitorId = result.visitorId
-        console.log(visitorId)
-      })
-      .catch(error => console.error(error))
-  }
+  // Get the visitor identifier when you need it.
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => console.log(result.visitorId));
 </script>
-<script
-  async
-  src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
-  onload="initFingerprintJS()"
-  onerror="console.error('Failed to load the script')"
-></script>
   </body>
 </html>
